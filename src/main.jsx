@@ -2,4 +2,4 @@ import { render } from 'preact'
 import { App } from './app'
 import './index.css'
 
-alert("Hello World !")
+alert("Hello World toto !")
