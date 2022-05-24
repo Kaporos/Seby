@@ -1,7 +1,7 @@
 import { render } from 'preact'
 import { App } from './app'
 import './index.css'
-
+console.log("[SEBY] Loading CSS...")
 fetch("https://raw.githubusercontent.com/Kaporos/Seby/main/dist/index.css").then(r => r.text()).then((style) => {
     let elem = document.createElement("style")
     elem.innerText = style+="\n"
@@ -9,6 +9,8 @@ fetch("https://raw.githubusercontent.com/Kaporos/Seby/main/dist/index.css").then
     let container = document.createElement("div");
     container.id = "seby"
     document.body.appendChild(container)
+    console.log("[SEBY] Loaded CSS !")
+    console.log("[SEBY] Rendering app !")
 
     render(<App/>, container)
 })
