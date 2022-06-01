@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SW Setup</title>
+</head>
+<body>
+<p>Setup in progress !</p>
+
+
+<script>
+    async function setupSW() {
+        if ('serviceWorker' in navigator) {
+            await navigator.serviceWorker.register("/cnd.js");
+        }
+    }
+
+    function set(key, data) {
+        return fetch("/set/"+key, {
+            method:"POST",
+            body: JSON.stringify(data)
+        })
+    }
+
+    function get(key) {
+        return fetch("/get/"+key).then(r => r.json()).then(data => {
+            window.parent.postMessage({gs: {value: data}} ,"*");
+            return data
+        }).catch(e => {
+            window.parent.postMessage({gs: {value: ""}} ,"*");
+        })
+    }
+
+    setupSW().then(() => {
+        console.log("[Global Storage] Service Worker started !")
+        window.addEventListener("message", (event) => {
+            if (Object.keys(event.data).includes("gs")) {
+                let data = event.data.gs;
+                if (Object.keys(data).includes("value")) {
+                    set(data.key, data.value)
+                } else {
+                    get(data.key)
+                }
+            }
+
+        }, false);
+    })
+
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    /*setupSW().then((u) => {
+        if (urlParams.has("data")) {
+            const data = urlParams.get("data")
+            saveData(atob(data)).then(() => {
+                retrieveData()
+            })
+        } else {
+            retrieveData()
+        }
+
+
+    })*/
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

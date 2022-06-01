@@ -1,0 +1,48 @@
+{
+  "modules": [
+    {
+      "name": "Eruda",
+      "dir": "eruda",
+      "url": "*",
+      "type": "module"
+    },
+    {
+      "name": "Hide Me",
+      "dir": "hideme",
+      "url": "*",
+      "type": "module"
+    },
+    {
+      "name": "Anglais Facile",
+      "dir": "anglaisfacile",
+      "url": "anglaisfacile",
+      "type": "module"
+    },
+    {
+      "name": "Source.io Hack Tool",
+      "dir": "sourceio",
+      "url": "s0urce.io",
+      "type": "module"
+    },
+    {
+      "name": "Edit",
+      "dir": "edit",
+      "url": "*",
+      "type": "category",
+      "submodules": [
+        {
+          "name": "Start Editing",
+          "dir": "start",
+          "url": "*",
+          "type": "module"
+        },
+        {
+          "name": "Stop Editing",
+          "dir": "end",
+          "url": "*",
+          "type": "module"
+        }
+      ]
+    }
+  ]
+}

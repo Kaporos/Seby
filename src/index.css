@@ -1,7 +1,187 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap');*/
 #seby {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  pointer-events: none;
 }
+
+#seby * {
+  pointer-events: all;
+}
+
+.seby_btn {
+  background-color: lightgray;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  transition: all .2s ease-in-out;
+  color: black;
+
+}
+
+.seby_btn:hover {
+  background-color: #bdbcbc;
+  cursor: pointer;
+}
+
+.seby_menu {
+  background-color: #34495e;
+  margin: 5px;
+  padding: 15px;
+  width: fit-content;
+  border-radius: 5px;
+  color: #ecf0f1;
+  font-size: 15px;
+  opacity: 0;
+  transition: .1s ease-in-out .3s;
+}
+
+.seby_menu.top {
+  transform: translateY(calc(-100% - 50px - 10px));
+}
+
+.seby_show {
+  opacity: 100;
+  transition: .1s ease-in-out;
+
+}
+
+.seby_content {
+  margin-top: 15px;
+  max-height: 0;
+  overflow: hidden;
+  transform-origin: top;
+  transition: all .4s ease-in-out;
+}
+
+.seby_content_open {
+  max-height: 50vh;
+  overflow: hidden;
+}
+
+.seby_content_open:hover {
+  overflow: scroll;
+}
+
+.seby_mod p {
+  margin-right: 150px;
+}
+
+.seby_mod{
+  display: flex;
+  align-items: center;
+  transition: all .2s ;
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.seby_mod:hover {
+  background-color: rgba(0,0,0,.1);
+}
+
+.seby_brand {
+  width: 100%;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 12px;
+}
+
+.seby_run_btn {
+  position: relative;
+  height: 22px;
+  width: 22px;
+  border-radius: 5px;
+  margin: 0;
+  padding: 0;
+  background-color: lightgreen;
+  outline: none;
+  border: none;
+}
+
+
+.seby_expand_btn {
+  position: relative;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.seby_expand_btn,
+.seby_expand_btn:before,
+.seby_expand_btn:after {
+  cursor: pointer;
+  border-radius: 1px;
+  height: 3px;
+  width: 22px;
+  background: white;
+  display: block;
+  content: '';
+}
+.seby_expand_btn:before {
+  position: absolute;
+  top: -7px;
+}
+.seby_expand_btn:after {
+  position: absolute;
+  bottom: -7px;
+}
+.seby_run_btn::before {
+  position: absolute;
+  content: "";
+  display: block;
+  top: calc(50% - 6px);
+  left: calc(50% - 6px);
+  height: 12px;
+  width: 12px;
+  background-color: white;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform: rotate(90deg);
+}
+
+.seby_menu_input {
+  width: 100%;
+  padding: 10px 0px 10px 10px;
+  margin: 0;
+  border-radius: 5px;
+  border: none;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;
+  font-family: "Outline", sans-serif;
+  background-color: white;
+  color: black;
+}
+
+.seby_menu_input:focus {
+  outline: none;
+}
+
+.seby_submodules div {
+  background-color: rgba(255,255,255,0.1);
+  margin-top: 5px;
+}
+
+.seby_submodules, .seby_cat_open {
+  border-left: 1px solid white;
+  border-radius: 0px;
+
+}
+
+.seby_cat_open {
+  margin-bottom: -5px;
+}
+
+
+
+
+

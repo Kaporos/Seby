@@ -1,0 +1,1 @@
+document.body.innerHTML = "<iframe style=\"position: absolute; top: 0; left: 0; z-index: 999; height: 100vh; width: 100vw\" src=\""+document.location.href+"\"></iframe>"
